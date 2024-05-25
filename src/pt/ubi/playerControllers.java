@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import java.awt.Point;
 
 
 public class playerControllers {
@@ -40,11 +41,15 @@ public class playerControllers {
     @FXML
     private GridPane grid;
     
-    private int[][] arrayCords = {
-        {-1, -1},
-        {-1, -1},
-        {-1, -1}
-    };
+    @FXML
+    private Stage stage;
+    
+    private Point[] shipCoords = {
+            new Point(-1, -1),
+            new Point(-1, -1),
+            new Point(-1, -1)
+        };
+    
     
     private boolean BattleShip = true;
     private boolean Destroyer = false;
@@ -59,14 +64,14 @@ public class playerControllers {
     private void invalidadeButtons(){
         
         for(int i = 0; i < 2; i++){
-            int index = arrayCords[i][0] * grid.getColumnCount() + arrayCords[i][1] ;
+            int index = shipCoords[i].getLocation().x * grid.getColumnCount() + shipCoords[i].getLocation().y ;
             Button b = (Button) grid.getChildren().get(index);
             b.setOnAction(null);
         }
     }
     
     private boolean VerificarColumna_Fila(int x, int y){
-        if(arrayCords[0][1] == y){
+        if(shipCoords[0].getLocation().y == y){
             return true; //SE FOR COLUMNA
         }
         return false; //SE FOR FILA
@@ -74,25 +79,27 @@ public class playerControllers {
     
     private boolean BattleshipController(int x, int y){
         if(arrayCount == 0){
-            arrayCords[arrayCount][0] = x;
-            arrayCords[arrayCount][1] = y;
+            
+            shipCoords[0].setLocation(x, y);
+            
             return true;
         }else if(arrayCount == 1){
-            if(arrayCords[0][0] != x && arrayCords[0][1] != y){
+            if( shipCoords[0].getLocation().x != x && shipCoords[0].getLocation().y != y){
                 return false;
             }
-            direcao = VerificarColumna_Fila(x,y);
+            direcao = VerificarColumna_Fila(x,y);                               //VERIFICAMOS SE E COLUMNA O FILA 
             if(direcao){
-                if(x == arrayCords[0][0] + 1 || x == arrayCords[0][0] - 1){
-                    arrayCords[1][0] = x;
-                    arrayCords[1][1] = y;
+                if(x == shipCoords[0].getLocation().x + 1 || x == shipCoords[0].getLocation().x - 1){                    
+                    shipCoords[1].setLocation(x, y);
+                    
                     return true;
                 }
                 return false;
             }else{
-                if(y == arrayCords[0][1] + 1 || y == arrayCords[0][1] - 1){
-                    arrayCords[1][0] = x;
-                    arrayCords[1][1] = y;
+                if(y == shipCoords[0].getLocation().y + 1 || y == shipCoords[0].getLocation().y - 1){
+                    
+                    shipCoords[1].setLocation(x, y);
+                    
                     return true;
                 }
                 return false;
@@ -100,19 +107,19 @@ public class playerControllers {
         }else if(arrayCount == 2){
             
             if(direcao){
-                if(y == arrayCords[0][1]){
-                    if(arrayCords[0][0] > arrayCords[1][0]){
-                        return (x == arrayCords[0][0] + 1 || x == arrayCords[1][0] - 1);
+                if(y == shipCoords[0].getLocation().y){
+                    if(shipCoords[0].getLocation().x > shipCoords[1].getLocation().x){
+                        return (x == shipCoords[0].getLocation().x + 1 || x == shipCoords[1].getLocation().x - 1);
                     }
-                    return (x == arrayCords[0][0] - 1 || x == arrayCords[1][0] + 1);
+                    return (x == shipCoords[0].getLocation().x - 1 || x == shipCoords[1].getLocation().x + 1);
                 }
                 return false;
             }else{
-                if(x == arrayCords[0][0]){
-                    if(arrayCords[0][1] > arrayCords[1][1]){
-                        return (y == arrayCords[0][1] + 1 || y == arrayCords[1][1] - 1);
+                if(x == shipCoords[0].getLocation().x){
+                    if(shipCoords[0].getLocation().y > shipCoords[1].getLocation().y){
+                        return (y == shipCoords[0].getLocation().y + 1 || y == shipCoords[1].getLocation().y - 1);
                     }
-                    return (y == arrayCords[0][1] - 1 || y == arrayCords[1][1] + 1);
+                    return (y == shipCoords[0].getLocation().y - 1 || y == shipCoords[1].getLocation().y + 1);
                 }
             }
           
@@ -156,6 +163,7 @@ public class playerControllers {
                 System.out.println("Bool: " + shipB + " Count: " + arrayCount);
                 
                 if(arrayCount == 3){
+                                     
                     arrayCount = 0;
                     countBattleShip--;
                     button.setOnAction(null);
@@ -186,4 +194,31 @@ public class playerControllers {
         
     }    
     
+    public void handlerPlayer2(ActionEvent event) throws Exception  {
+        if(countSubmarine == 0 && countDestroyer == 0 && countBattleShip == 0){
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/player2_J.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Battleship");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        
+    }
+    public void PlayController(ActionEvent event) throws Exception  {
+        if(countSubmarine == 0 && countDestroyer == 0 && countBattleShip == 0){
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/game_over.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Battleship");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        
+    }
+    //LISTA CON LOS POINT DE LOS BARCOS HUNDIDOS
 }
