@@ -480,7 +480,7 @@ public class HelloController {
 
     // Method to start the game for player 1
     public void begin_(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("../resources/player1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("../resources/player1_J.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Battleship p1");
