@@ -11,11 +11,14 @@ import java.awt.Point;
  * @author joels
  */
 public class Board {
-    private Point[][] BattleshipCoords = new Point[4][3];
-    private Point[][] DestroyerCoords = new Point[5][2];
-    private Point[] SubmarinesCoords = new Point[3];
+    private Point[][] BattleshipCoords;
+    private Point[][] DestroyerCoords;
+    private Point[] SubmarinesCoords;
 
     public Board() {
+        this.BattleshipCoords = new Point[4][3];
+        this.DestroyerCoords = new Point[5][2];
+        this.SubmarinesCoords = new Point[3];
     }
     
     public Point getBattleShipCoords(int i, int j){

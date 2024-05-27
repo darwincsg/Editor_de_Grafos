@@ -21,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.awt.Point;
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 
 
 public class playerControllers {
@@ -61,12 +63,27 @@ public class playerControllers {
     private int countSubmarine = 3;
     private int arrayCount = 0;
     
-    private void invalidadeButtons(){
+    //PL1 AND PL2 COORDS
+    private Board P1_Coords = new Board();
+    private Board P_Coords = new Board();
+    
+    private void invalidadeButtons(int boat){
         
         for(int i = 0; i < 2; i++){
             int index = shipCoords[i].getLocation().x * grid.getColumnCount() + shipCoords[i].getLocation().y ;
             Button b = (Button) grid.getChildren().get(index);
             b.setOnAction(null);
+            switch(boat){
+                case 0:
+                    P_Coords.setBattleShipCoords(shipCoords[i].getLocation().x, shipCoords[i].getLocation().y, countBattleShip, i);
+                    break;
+                case 1:
+                    P_Coords.setDestroyerCoords(shipCoords[i].getLocation().x, shipCoords[i].getLocation().y, countDestroyer, i);
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
     
@@ -166,8 +183,12 @@ public class playerControllers {
                                      
                     arrayCount = 0;
                     countBattleShip--;
+                    
+                    invalidadeButtons(0);
+                    
                     button.setOnAction(null);
-                    invalidadeButtons();
+                    P_Coords.setBattleShipCoords( (int) row, (int) col,countBattleShip,2);
+                            
                     L_Battle.setText(String.valueOf(countBattleShip));
                 }
             }
@@ -180,7 +201,7 @@ public class playerControllers {
                 if(arrayCount == 2){
                     arrayCount = 0;
                     countDestroyer--;
-                    invalidadeButtons();
+                    invalidadeButtons(1);
                     L_Destroyer.setText(String.valueOf(countDestroyer));
                 }
             }
@@ -188,6 +209,7 @@ public class playerControllers {
             countSubmarine--;
             button.setOnAction(null);
             button.setStyle("-fx-background-color: red;");
+            P_Coords.setSubmarinesCoords((int) row, (int) col, countSubmarine);
             L_Submarine.setText(String.valueOf(countSubmarine));
         }
         
@@ -196,29 +218,57 @@ public class playerControllers {
     
     public void handlerPlayer2(ActionEvent event) throws Exception  {
         if(countSubmarine == 0 && countDestroyer == 0 && countBattleShip == 0){
-
+            
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/player2_J.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(fxmlLoader.load());
+            Parent root = (Parent) fxmlLoader.load();
+            
+            stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
             stage.setTitle("Battleship");
-            stage.setScene(scene);
+            stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();
+            
+            playerControllers controller = fxmlLoader.getController();
+            controller.setBoard1(P_Coords);
+            
+            Stage thisStage = (Stage) L_Battle.getScene().getWindow();
+            thisStage.close();
+            thisStage = null;
         }
         
     }
     public void PlayController(ActionEvent event) throws Exception  {
         if(countSubmarine == 0 && countDestroyer == 0 && countBattleShip == 0){
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/game_over.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(fxmlLoader.load());
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/turns.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            
+            stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
             stage.setTitle("Battleship");
-            stage.setScene(scene);
+            stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();
+            
+            GameController controller = fxmlLoader.getController();
+            controller.setBoard1(P1_Coords);
+            controller.setBoard2(P_Coords);
+            controller.setTurn(true);
+            
+            Stage thisStage = (Stage) L_Battle.getScene().getWindow();
+            thisStage.close();
+            thisStage = null;
         }
         
     }
+    
+    public void setBoard1(Board board){
+        this.P1_Coords = board;
+    }
+    
+    
     //LISTA CON LOS POINT DE LOS BARCOS HUNDIDOS
 }
