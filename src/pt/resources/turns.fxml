@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="851.0" stylesheets="@app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ubi.GameController">
     <children>
@@ -138,6 +139,11 @@
             <Button mnemonicParsing="false" onAction="#b_AttackController" prefHeight="61.0" prefWidth="65.0" GridPane.columnIndex="9" GridPane.rowIndex="9" />
          </children>
         </GridPane>
-        <Label fx:id="turn_p1" alignment="CENTER" layoutX="258.0" layoutY="33.0" prefHeight="63.0" prefWidth="336.0" styleClass="turn" stylesheets="@app3.css" text="TURN" />
+        <Label fx:id="lbl_turns" alignment="CENTER" layoutX="258.0" layoutY="33.0" prefHeight="63.0" prefWidth="336.0" styleClass="turn" stylesheets="@app3.css" text="TURN PLAYER 1" />
+      <Label fx:id="lbl_movs" layoutX="74.0" layoutY="96.0" prefHeight="28.0" prefWidth="227.0" text="Movements: 2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

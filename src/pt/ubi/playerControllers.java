@@ -256,7 +256,8 @@ public class playerControllers {
             GameController controller = fxmlLoader.getController();
             controller.setBoard1(P1_Coords);
             controller.setBoard2(P_Coords);
-            controller.setTurn(true);
+            controller.setTurn(false);
+            controller.setMovs(2);
             
             Stage thisStage = (Stage) L_Battle.getScene().getWindow();
             thisStage.close();

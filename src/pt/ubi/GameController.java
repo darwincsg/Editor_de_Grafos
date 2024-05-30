@@ -36,11 +36,21 @@ public class GameController {
     @FXML
     public GridPane grid;
     
+    @FXML
+    public Label lbl_movs;
+    
+    
+    @FXML
+    public Label lbl_turns;
+    
+    
     
     private Board P1_Coords;
     private Board P2_Coords;
     
     private boolean turnController;
+    
+    private int mov_Controller;
     
     private List<Point> Attack_coordsList1 = new ArrayList<>();
     private List<Point> Attack_coordsList2 = new ArrayList<>();
@@ -60,6 +70,10 @@ public class GameController {
         this.turnController = turn;
     }
     
+    public void setMovs(int mov_Controller){
+        this.mov_Controller = mov_Controller;
+    }
+    
     public void Attack_setList1(List<Point> Attack_coordsList1){
         this.Attack_coordsList1 = Attack_coordsList1;
     }
@@ -75,6 +89,10 @@ public class GameController {
     
     
     public void nextturn_Controller(ActionEvent event) throws Exception{
+        if(mov_Controller != 0){
+            return;
+        }
+        
         
         if(Attack_coordsList1.size() == 25){
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/game_over.fxml"));
@@ -87,6 +105,10 @@ public class GameController {
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();
+            
+            
+            game_over_controller controller = fxmlLoader.getController();
+            controller.change_text("Winner : Player 2");
         }else if(Attack_coordsList2.size() == 25){
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/game_over.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -98,6 +120,9 @@ public class GameController {
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();
+            
+            game_over_controller controller = fxmlLoader.getController();
+            controller.change_text("Winner: Player 1");
         }else{
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/turns.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -114,6 +139,7 @@ public class GameController {
             controller.setBoard1(P1_Coords);
             controller.setBoard2(P2_Coords);
             controller.setTurn(!turnController);
+            controller.setMovs(2);
             controller.Attack_setList1(Attack_coordsList1);
             controller.Attack_setList2(Attack_coordsList2);
             controller.setList1(coordsList1);
@@ -139,6 +165,12 @@ public class GameController {
         Integer row = GridPane.getRowIndex(b);
         Integer col = GridPane.getColumnIndex(b);
         
+        if(mov_Controller == 0){
+            return;
+        }
+        
+        mov_Controller--;
+        
         if(confEvery((int) row, (int) col)){
             
             if(turnController){
@@ -148,6 +180,8 @@ public class GameController {
             }
             
             b.setStyle("-fx-background-color: red;");
+            b.setOnAction(null);
+            lbl_movs.setText("Movements: " + mov_Controller);
         }else{
             if(turnController){
                 coordsList1.add(new Point( (int)row, (int)col ));
@@ -155,7 +189,10 @@ public class GameController {
                 coordsList2.add(new Point( (int)row, (int)col ));
             }
             b.setStyle("-fx-background-color: grey;");
+            b.setOnAction(null);
+            lbl_movs.setText("Movements: " + mov_Controller);
         }
+        
     }
     
     public boolean confirmBattleShips(int x, int y){
@@ -222,15 +259,26 @@ public class GameController {
     public void initializeData(List<Point> Attack_dataCoords, List<Point> dataCoords ) {
         int index;
         Button b; 
+        
+        if(turnController){
+            lbl_turns.setText("TURN PLAYER 2");
+        }else{
+            lbl_turns.setText("TURN PLAYER 1");
+        }
+        
         for(Point point : Attack_dataCoords ){
             index = point.x * grid.getColumnCount() + point.y;
             b = (Button) grid.getChildren().get(index);
             b.setStyle("-fx-background-color: red;");
+            b.setOnAction(null);
         }
         for(Point pointC : dataCoords ){
             index = pointC.x * grid.getColumnCount() + pointC.y;
             b = (Button) grid.getChildren().get(index);
             b.setStyle("-fx-background-color: grey;");
+            b.setOnAction(null);
         }
     }
+    
+    
 }
