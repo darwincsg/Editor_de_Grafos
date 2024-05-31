@@ -29,6 +29,8 @@ import javafx.stage.StageStyle;
 
 public class playerControllers {
     @FXML
+    private Button swicth_p1;
+    @FXML
     private Button B_Battle;
     @FXML
     private Button B_Destroyer;
@@ -68,6 +70,10 @@ public class playerControllers {
     //PL1 AND PL2 COORDS
     private Board P1_Coords = new Board();
     private Board P_Coords = new Board();
+    
+    public void setVisible(boolean v){
+        swicth_p1.setVisible(v);
+    }
     
     private void invalidadeButtons(int boat){
         
@@ -257,11 +263,14 @@ public class playerControllers {
             P_Coords.setSubmarinesCoords((int) row, (int) col, countSubmarine);
             L_Submarine.setText(String.valueOf(countSubmarine));
         }
-        
+        if(countSubmarine == 0 && countDestroyer == 0 && countBattleShip == 0){
+            setVisible(true);
+        }
         
     }    
     
     public void handlerPlayer2(ActionEvent event) throws Exception  {
+        
         if(countSubmarine == 0 && countDestroyer == 0 && countBattleShip == 0){
             
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/player2_J.fxml"));
@@ -277,6 +286,7 @@ public class playerControllers {
             
             playerControllers controller = fxmlLoader.getController();
             controller.setBoard1(P_Coords);
+            controller.setVisible(false);
             
             Stage thisStage = (Stage) L_Battle.getScene().getWindow();
             thisStage.close();
@@ -303,6 +313,7 @@ public class playerControllers {
             controller.setBoard2(P_Coords);
             controller.setTurn(false);
             controller.setMovs(2);
+            controller.setVisible(false);
             
             Stage thisStage = (Stage) L_Battle.getScene().getWindow();
             thisStage.close();

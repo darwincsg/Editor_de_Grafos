@@ -25,10 +25,10 @@ import javafx.stage.StageStyle;
  * @author joels
  */
 public class GameController {
-    /*
+    
     @FXML
     private Button swicth_p1;
-    @FXML
+    /*@FXML
     private Label LabelTurn;*/
     @FXML
     private Stage stage;
@@ -105,6 +105,9 @@ public class GameController {
         this.indexCountP2 = indexCountP2;
     }
     
+    public void setVisible(boolean v){
+        swicth_p1.setVisible(v);
+    }
     
     public void nextturn_Controller(ActionEvent event) throws Exception{
         if(mov_Controller != 0){
@@ -165,6 +168,7 @@ public class GameController {
             controller.setsunkCoords2(sunkCoords2);
             controller.setindexCount1(indexCountP1);
             controller.setindexCount2(indexCountP2);
+            controller.setVisible(false);
             
             if(turnController){
                 controller.initializeData(Attack_coordsList1, coordsList2, sunkCoords1,indexCountP1);
@@ -258,7 +262,9 @@ public class GameController {
                 lbl_movs.setText("Movements: " + mov_Controller);
             }
         }
-        
+        if(mov_Controller == 0){
+            setVisible(true);
+        }
     }
     
     public int confirmBattleShips(int x, int y){

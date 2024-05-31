@@ -23,6 +23,8 @@ public class HelloController {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/player1_J.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
+        playerControllers controller = fxmlLoader.getController();
+        controller.setVisible(false);
         stage.setTitle("Battleship p1");
         stage.setScene(scene);
         stage.setResizable(false);
