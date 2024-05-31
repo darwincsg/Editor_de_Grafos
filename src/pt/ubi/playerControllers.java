@@ -21,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.awt.Point;
+import java.util.Arrays;
+import java.util.Comparator;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
 
@@ -73,6 +75,7 @@ public class playerControllers {
             int index = shipCoords[i].getLocation().x * grid.getColumnCount() + shipCoords[i].getLocation().y ;
             Button b = (Button) grid.getChildren().get(index);
             b.setOnAction(null);
+            b.setStyle("");
             switch(boat){
                 case 0:
                     P_Coords.setBattleShipCoords(shipCoords[i].getLocation().x, shipCoords[i].getLocation().y, countBattleShip, i);
@@ -84,6 +87,43 @@ public class playerControllers {
                     break;
             }
             
+        }
+    }
+    
+    private void paintShips(int boat, boolean dir){
+        int index1 = shipCoords[0].getLocation().x * grid.getColumnCount() + shipCoords[0].getLocation().y ;
+        int index2 = shipCoords[1].getLocation().x * grid.getColumnCount() + shipCoords[1].getLocation().y ;
+        
+        Button b1 = (Button) grid.getChildren().get(index1);
+        Button b2 = (Button) grid.getChildren().get(index2);
+        
+        switch(boat){
+            case 0 -> {
+                int index3 = shipCoords[2].getLocation().x * grid.getColumnCount() + shipCoords[2].getLocation().y ;                    
+                Button b3 = (Button) grid.getChildren().get(index3);
+                b3.setStyle("");
+                if(dir){
+                    b1.getStyleClass().add("buttonBat1");
+                    b2.getStyleClass().add("buttonBat2");
+                    b3.getStyleClass().add("buttonBat3");
+                    break;
+                }
+                b1.getStyleClass().add("buttonBatL3");
+                b2.getStyleClass().add("buttonBatL2");
+                b3.getStyleClass().add("buttonBatL1");
+                break;
+            }
+            case 1 -> {   
+                if(dir){
+                    b1.getStyleClass().add("buttonDes1");
+                    b2.getStyleClass().add("buttonDes2");
+                    break;
+                }
+                b1.getStyleClass().add("buttonDesL2");
+                b2.getStyleClass().add("buttonDesL1");
+                break;
+            }
+        
         }
     }
     
@@ -170,24 +210,26 @@ public class playerControllers {
         Integer row = GridPane.getRowIndex(button);
         Integer col = GridPane.getColumnIndex(button);
         
-        System.out.println("Fila " + row + "Columna" + col);
+        //System.out.println("Fila " + row + "Columna" + col);
         
         if(BattleShip && countBattleShip>0 ){
             boolean shipB = BattleshipController(row,col);
             if(shipB){
                 arrayCount++;
                 button.setStyle("-fx-background-color: black;");
-                System.out.println("Bool: " + shipB + " Count: " + arrayCount);
+                //System.out.println("Bool: " + shipB + " Count: " + arrayCount);
                 
                 if(arrayCount == 3){
-                                     
+                    button.setOnAction(null);
+                    
+                    shipCoords[2].setLocation( (int) row,(int) col);
+                    ordenarPuntos(shipCoords);
                     arrayCount = 0;
                     countBattleShip--;
-                    
                     invalidadeButtons(0);
+                    paintShips(0,direcao);
                     
-                    button.setOnAction(null);
-                    P_Coords.setBattleShipCoords( (int) row, (int) col,countBattleShip,2);
+                    P_Coords.setBattleShipCoords( shipCoords[2].x, shipCoords[2].y,countBattleShip,2);
                             
                     L_Battle.setText(String.valueOf(countBattleShip));
                 }
@@ -199,16 +241,19 @@ public class playerControllers {
                 arrayCount++;
                 button.setStyle("-fx-background-color: green;");
                 if(arrayCount == 2){
+                    shipCoords[2].setLocation(11,11);
+                    ordenarPuntos(shipCoords);
                     arrayCount = 0;
                     countDestroyer--;
                     invalidadeButtons(1);
+                    paintShips(1,direcao);
                     L_Destroyer.setText(String.valueOf(countDestroyer));
                 }
             }
         }else if(Submarine && countSubmarine>0 ){
             countSubmarine--;
             button.setOnAction(null);
-            button.setStyle("-fx-background-color: red;");
+            button.getStyleClass().add("buttonSub");
             P_Coords.setSubmarinesCoords((int) row, (int) col, countSubmarine);
             L_Submarine.setText(String.valueOf(countSubmarine));
         }
@@ -270,6 +315,17 @@ public class playerControllers {
         this.P1_Coords = board;
     }
     
+    private static void ordenarPuntos(Point[] puntos) {
+        Arrays.sort(puntos, new Comparator<Point>() {
+            @Override
+            public int compare(Point p1, Point p2) {
+                int resultado = Integer.compare(p1.x, p2.x);
+                if (resultado == 0) {
+                    resultado = Integer.compare(p1.y, p2.y);
+                }
+                return resultado;
+            }
+        });
+    }
     
-    //LISTA CON LOS POINT DE LOS BARCOS HUNDIDOS
 }

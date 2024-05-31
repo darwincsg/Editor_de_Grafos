@@ -4,12 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/GameController.java</file>
-            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/resources/player2_J.fxml</file>
-            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/Main.java</file>
-            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/resources/turns.fxml</file>
+            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/resources/appBattleShips.css</file>
+            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/game_over_controller.java</file>
+            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/resources/initial.fxml</file>
             <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/Board.java</file>
-            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/playerControllers.java</file>
             <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/HelloController.java</file>
+            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/ubi/playerControllers.java</file>
+            <file>file:/C:/Users/joels/Desktop/IHC/ProjetoFinal/src/pt/resources/assets/BshipL_3.png</file>
         </group>
     </open-files>
 </project-private>

@@ -37,106 +37,106 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
-            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" GridPane.columnIndex="9" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="0" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleButton" prefHeight="78.0" prefWidth="76.0" stylesheets="@appBattleShips.css" GridPane.columnIndex="9" GridPane.rowIndex="9" />
          </children>
         </GridPane>
       <Label fx:id="instruct_p1" alignment="CENTER" layoutX="185.0" layoutY="-3.0" prefHeight="63.0" prefWidth="336.0" text="PLAYER 2" />

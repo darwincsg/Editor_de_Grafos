@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
          <image>
-            <Image url="@sam.jpg" />
+            <Image url="@assets/sam.jpg" />
          </image>
       </ImageView>
       <Button fx:id="begin" layoutX="346.0" layoutY="32.0" mnemonicParsing="false" onAction="#begin_" prefHeight="68.0" prefWidth="191.0" styleClass="begin" stylesheets="@app.css" text="START" />

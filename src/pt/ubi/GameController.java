@@ -43,8 +43,6 @@ public class GameController {
     @FXML
     public Label lbl_turns;
     
-    
-    
     private Board P1_Coords;
     private Board P2_Coords;
     
@@ -57,6 +55,14 @@ public class GameController {
     
     private List<Point> coordsList1 = new ArrayList<>();
     private List<Point> coordsList2 = new ArrayList<>();
+    
+    private List<Point> sunkCoords1 = new ArrayList<>();
+    private List<Point> sunkCoords2 = new ArrayList<>();
+    private int[] indexCountP1 = new int[9];
+    private int[] indexCountP2 = new int[9];    
+    
+    private int confS = -1;
+    private int confB = -1;
     
     public void setBoard1(Board board){
         this.P1_Coords = board;
@@ -86,6 +92,18 @@ public class GameController {
     public void setList2(List<Point> coordsList2){
         this.coordsList2 = coordsList2;
     }
+    public void setsunkCoords1(List<Point> sunkCoords1){
+        this.sunkCoords1 = sunkCoords1;
+    }
+    public void setsunkCoords2(List<Point> sunkCoords2){
+        this.sunkCoords2 = sunkCoords2;
+    }
+    public void setindexCount1(int[] indexCountP1){
+        this.indexCountP1 = indexCountP1;
+    }
+    public void setindexCount2(int[] indexCountP2){
+        this.indexCountP2 = indexCountP2;
+    }
     
     
     public void nextturn_Controller(ActionEvent event) throws Exception{
@@ -93,8 +111,7 @@ public class GameController {
             return;
         }
         
-        
-        if(Attack_coordsList1.size() == 25){
+        if(sunkCoords2.size() == 12){
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/game_over.fxml"));
             Parent root = (Parent) fxmlLoader.load();
 
@@ -109,7 +126,7 @@ public class GameController {
             
             game_over_controller controller = fxmlLoader.getController();
             controller.change_text("Winner : Player 2");
-        }else if(Attack_coordsList2.size() == 25){
+        }else if(sunkCoords1.size() == 12){
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../resources/game_over.fxml"));
             Parent root = (Parent) fxmlLoader.load();
 
@@ -144,14 +161,18 @@ public class GameController {
             controller.Attack_setList2(Attack_coordsList2);
             controller.setList1(coordsList1);
             controller.setList2(coordsList2);
+            controller.setsunkCoords1(sunkCoords1);
+            controller.setsunkCoords2(sunkCoords2);
+            controller.setindexCount1(indexCountP1);
+            controller.setindexCount2(indexCountP2);
+            
             if(turnController){
-                controller.initializeData(Attack_coordsList2, coordsList2);
+                controller.initializeData(Attack_coordsList1, coordsList2, sunkCoords1,indexCountP1);
             }else{
-                controller.initializeData(Attack_coordsList1, coordsList1);
+                controller.initializeData(Attack_coordsList2, coordsList1, sunkCoords2,indexCountP2);
             }
         }
         
-                    
         Stage thisStage = (Stage) grid.getScene().getWindow();
         thisStage.close();
         thisStage = null;
@@ -165,37 +186,82 @@ public class GameController {
         Integer row = GridPane.getRowIndex(b);
         Integer col = GridPane.getColumnIndex(b);
         
+        b.setOnAction(null);
         if(mov_Controller == 0){
             return;
         }
         
+        int confValue = confEvery((int) row, (int) col);
         mov_Controller--;
         
-        if(confEvery((int) row, (int) col)){
-            
-            if(turnController){
-                Attack_coordsList1.add(new Point( (int)row, (int)col ));
-            }else{
-                Attack_coordsList2.add(new Point( (int)row, (int)col ));
+        switch (confValue) {
+            case 0 -> {
+                b.getStyleClass().add("buttonSub");
+                b.setOnAction(null);
+                lbl_movs.setText("Movements: " + mov_Controller);
             }
-            
-            b.setStyle("-fx-background-color: red;");
-            b.setOnAction(null);
-            lbl_movs.setText("Movements: " + mov_Controller);
-        }else{
-            if(turnController){
-                coordsList1.add(new Point( (int)row, (int)col ));
-            }else{
-                coordsList2.add(new Point( (int)row, (int)col ));
+            case 1 -> {
+                if(turnController){
+                    confS = confirmSunkDestroyer(indexCountP2);
+                    if(confS != -1){
+                        boolean dir = VerificarColumna_Fila(P1_Coords.getDestroyerCoords(),confS) ;
+                        removerPoints(confS, 2,Attack_coordsList2, P1_Coords.getDestroyerCoords());
+                        paintDestroyerShips(confS,dir,P1_Coords.getDestroyerCoords());
+                    }else{
+                        b.setStyle("-fx-background-color: red;");
+                        Attack_coordsList2.add(new Point( (int)row, (int)col ));
+                    }
+                }else{
+                    confS = confirmSunkDestroyer(indexCountP1);
+                    if(confS != -1){
+                        boolean dir = VerificarColumna_Fila(P2_Coords.getDestroyerCoords(),confS) ;
+                        removerPoints(confS, 2,Attack_coordsList1, P2_Coords.getDestroyerCoords());
+                        paintDestroyerShips(confS,dir,P2_Coords.getDestroyerCoords());
+                    }else{
+                        b.setStyle("-fx-background-color: red;");
+                        Attack_coordsList1.add(new Point( (int)row, (int)col ));
+                    }
+                }
+                lbl_movs.setText("Movements: " + mov_Controller);
             }
-            b.setStyle("-fx-background-color: grey;");
-            b.setOnAction(null);
-            lbl_movs.setText("Movements: " + mov_Controller);
+            case 2 ->{
+                if(turnController){
+                    confB = confirmSunkBattle(indexCountP2);
+                    if(confB != -1){
+                        boolean dir = VerificarColumna_Fila(P1_Coords.getBattleshipCoords(),confB-5);
+                        removerPoints(confB - 5,3,Attack_coordsList2,P1_Coords.getBattleshipCoords());
+                        paintBattleShips(confB-5,dir,P1_Coords.getBattleshipCoords());
+                    }else{
+                        b.setStyle("-fx-background-color: red;");
+                        Attack_coordsList2.add(new Point( (int)row, (int)col ));
+                    }
+                }
+                else{
+                    confB = confirmSunkBattle(indexCountP1);
+                    if(confB != -1){
+                        boolean dir = VerificarColumna_Fila(P2_Coords.getBattleshipCoords(),confB-5);
+                        removerPoints(confB - 5,3,Attack_coordsList1,P2_Coords.getBattleshipCoords());
+                        paintBattleShips(confB-5,dir,P2_Coords.getBattleshipCoords());
+                    }else{
+                        b.setStyle("-fx-background-color: red;");
+                        Attack_coordsList1.add(new Point( (int)row, (int)col ));
+                    }
+                }
+                lbl_movs.setText("Movements: " + mov_Controller);
+            }
+            default -> {
+                if(turnController){
+                    coordsList1.add(new Point( (int)row, (int)col ));
+                }else{
+                    coordsList2.add(new Point( (int)row, (int)col ));
+                }   b.setStyle("-fx-background-color: grey;");
+                lbl_movs.setText("Movements: " + mov_Controller);
+            }
         }
         
     }
     
-    public boolean confirmBattleShips(int x, int y){
+    public int confirmBattleShips(int x, int y){
         int CoordX, CoordY;
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 3; j++){
@@ -206,16 +272,16 @@ public class GameController {
                     CoordX = P2_Coords.getBattleShipCoords(i, j).x;
                     CoordY = P2_Coords.getBattleShipCoords(i, j).y;
                 }
-                
+                System.out.println("X: " + CoordX + "Y:" + CoordY + "///" + x + " " + y);
+                System.out.println("X: " + P1_Coords.getBattleShipCoords(3,2) + "Y:" + P1_Coords.getBattleShipCoords(3,2));
                 if(CoordX == x && CoordY == y){
-                    return true;
+                    return i;
                 }
-                
             }
         }
-        return false;
+        return -1;
     }
-    public boolean confirmDestroyerShips(int x, int y){
+    public int confirmDestroyerShips(int x, int y){
         int CoordX, CoordY;
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 2; j++){
@@ -227,14 +293,14 @@ public class GameController {
                     CoordY = P2_Coords.getDestroyerCoords(i, j).y;
                 }
                 if(CoordX == x && CoordY == y){
-                    return true;
+                    return i;
                 }
             }
         }
-        return false;
+        return -1;
     }
     
-    public boolean confirmSubmarine(int x, int y){
+    public int confirmSubmarine(int x, int y){
         int CoordX, CoordY;
         for(int i = 0; i < 3; i++){
             if(turnController){
@@ -245,27 +311,131 @@ public class GameController {
                 CoordY = P2_Coords.getSubmarinesCoords(i).y;
             }
             if(CoordX == x && CoordY == y){
-                    return true;
+                    return i;
             }
         }
-        return false;
+        return -1;
     }
-    public boolean confEvery(int x, int y){
-        return confirmBattleShips(x,y) || confirmDestroyerShips(x,y) || confirmSubmarine(x,y);            
+    public int confEvery(int x, int y){
+        int b,d,s;
+        s = confirmSubmarine(x,y);
+        d = confirmDestroyerShips(x,y);
+        b = confirmBattleShips(x,y);
+        System.out.println("B = " + b);
+        if(s != -1){
+            if(turnController){
+                sunkCoords2.add(new Point(0,s));
+            }else{
+                sunkCoords1.add(new Point(0,s));
+            }
+            return 0;
+        }else if(d != -1){
+            if(turnController){
+                if(indexCountP2[d] == 0){
+                    sunkCoords2.add(new Point(1,d));
+                }
+                indexCountP2[d]++;
+            }else{
+                if(indexCountP1[d] == 0){
+                    sunkCoords1.add(new Point(1,d));
+                }
+                indexCountP1[d]++;
+            }
+            return 1;
+        }else if(b != -1){
+            b += 5;
+            System.out.println("B = " + b);
+            if(turnController){
+                if(indexCountP2[b] == 0){
+                    sunkCoords2.add(new Point(2,b - 5));
+                }
+                indexCountP2[b]++;
+            }else{
+                if(indexCountP1[b] == 0){
+                    sunkCoords1.add(new Point(2, b - 5));
+                }
+                indexCountP1[b]++;
+            }
+            return 2;
+        }
+        
+        return -1;            
                
     }
     
-    
-    public void initializeData(List<Point> Attack_dataCoords, List<Point> dataCoords ) {
-        int index;
-        Button b; 
-        
-        if(turnController){
-            lbl_turns.setText("TURN PLAYER 2");
-        }else{
-            lbl_turns.setText("TURN PLAYER 1");
+    public int confirmSunkDestroyer(int[] countP){
+        for(int i = 0; i < 5; i++){
+            if(countP[i] == 2){
+                countP[i] = -1;
+                return i;
+            } 
         }
+        return -1;
+    }
+    public int confirmSunkBattle(int[] countP){
+        for(int i = 5; i < 9; i++){
+            if(countP[i] == 3){
+                countP[i] = -1;
+                return i;
+            } 
+        }
+        return -1;
+    }
+    
+    public void paintDestroyerShips(int index, boolean dir,Point[][] shipCoords){
         
+            int b_index;
+            Button b; 
+            for(int i = 0, j = 2; i < 2; i++, j--){
+                b_index= shipCoords[index][i].x * grid.getColumnCount() + shipCoords[index][i].y;
+                b = (Button) grid.getChildren().get(b_index);
+                b.setStyle("");
+                b.setOnAction(null);
+                if(dir){
+                    String s = "buttonDes" + (i+1);
+                    b.getStyleClass().add(s);
+                }else{
+                    String s = "buttonDesL" + (j);
+                    b.getStyleClass().add(s);
+                }
+            }
+    }
+    public void paintBattleShips(int index, boolean dir,Point[][] shipCoords){
+        
+            int b_index;
+            Button b; 
+            for(int i = 0, j = 3; i < 3; i++, j--){
+                b_index= shipCoords[index][i].x * grid.getColumnCount() + shipCoords[index][i].y;
+                b = (Button) grid.getChildren().get(b_index);
+                b.setStyle("");
+                b.setOnAction(null);
+                if(dir){
+                    String s = "buttonBat" + (i+1);
+                    b.getStyleClass().add(s);
+                }else{
+                    String s = "buttonBatL" + (j);
+                    b.getStyleClass().add(s);
+                }
+            }
+    }
+    
+    private boolean VerificarColumna_Fila(Point[][] board,int index){
+        if(board[index][1].getLocation().y == board[index][0].getLocation().y){
+            return true; //SE FOR COLUMNA
+        }
+        return false; //SE FOR FILA
+    }
+    
+    public void removerPoints(int index, int length, List<Point> list,Point[][] shipCoords){
+        for(int i = 0; i < length; i++){
+            list.remove(shipCoords[index][i]);
+        }
+    }
+    
+    public void initializeData(List<Point> Attack_dataCoords, List<Point> dataCoords, List<Point> sunkCoords, int[] sunkShips) {
+        int index, index2, index3;
+        Button b; 
+                
         for(Point point : Attack_dataCoords ){
             index = point.x * grid.getColumnCount() + point.y;
             b = (Button) grid.getChildren().get(index);
@@ -278,6 +448,67 @@ public class GameController {
             b.setStyle("-fx-background-color: grey;");
             b.setOnAction(null);
         }
+        
+        if(turnController){
+            lbl_turns.setText("TURN PLAYER 2");
+            
+            for(Point pointSunk : sunkCoords){
+                if(pointSunk.x == 0){
+                    Point aux = P1_Coords.getSubmarinesCoords(pointSunk.y);
+                    index = aux.x * grid.getColumnCount() + aux.y;
+                    b = (Button) grid.getChildren().get(index);
+                    b.getStyleClass().add("buttonSub");
+                    b.setOnAction(null);
+                }
+                if(pointSunk.x == 1){
+                    for(int i = 0; i < 5; i++){
+                        if(sunkShips[i] == -1){
+                            boolean dir = VerificarColumna_Fila(P1_Coords.getDestroyerCoords(),i);
+                            paintDestroyerShips(i, dir,P1_Coords.getDestroyerCoords());
+                        }
+                    }
+                }
+                if(pointSunk.x == 2){
+                    for(int i = 5; i < 9; i++){
+                        if(sunkShips[i] == -1){
+                           boolean dir = VerificarColumna_Fila(P1_Coords.getBattleshipCoords(),i-5); 
+                            paintBattleShips(i-5, dir,P1_Coords.getBattleshipCoords());
+                        }
+                    }
+                }
+            }
+            
+        }else{
+            lbl_turns.setText("TURN PLAYER 1");
+            
+            for(Point pointSunk : sunkCoords){
+                if(pointSunk.x == 0){
+                    Point aux = P2_Coords.getSubmarinesCoords(pointSunk.y);
+                    index = aux.x * grid.getColumnCount() + aux.y;
+                    b = (Button) grid.getChildren().get(index);
+                    b.getStyleClass().add("buttonSub");
+                    b.setOnAction(null);
+                }
+                if(pointSunk.x == 1){
+                    for(int i = 0; i < 5; i++){
+                        if(sunkShips[i] == -1){
+                            boolean dir = VerificarColumna_Fila(P2_Coords.getDestroyerCoords(),i);
+                            paintDestroyerShips(i, dir,P2_Coords.getDestroyerCoords());
+                        } 
+                    }
+                }
+                if(pointSunk.x == 2){
+                    for(int i = 5; i < 9; i++){
+                        if(sunkShips[i] == -1){
+                           boolean dir = VerificarColumna_Fila(P2_Coords.getBattleshipCoords(),i-5); 
+                            paintBattleShips(i-5, dir,P2_Coords.getBattleshipCoords());
+                        }
+                    }
+                }
+            }
+            
+        }
+        
     }
     
     
