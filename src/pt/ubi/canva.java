@@ -1,7 +1,6 @@
 package pt.ubi;
 
 import java.awt.Point;
-import javafx.application.Application;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import org.jgrapht.Graph;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.SimpleGraph;
 
 
 /**
@@ -36,9 +39,13 @@ public class canva {
     private boolean SimpleDirectedGraph = false;
     private boolean SimpleDirectedWeightedGraph = false;
             
-    Point[] connection = new Point[2];
+    private int id = 0;
     
-    private List<Point> vertices = new ArrayList<>();
+    Vertice[] connection = new Vertice[2];
+    
+    private List<Vertice> verticeV = new ArrayList<>();
+    
+    Graph<String, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
     
     public void setSimpleGraph(boolean SimpleGraph) {
         this.SimpleGraph = SimpleGraph;
@@ -72,28 +79,32 @@ public class canva {
         
     public void paintController(GraphicsContext context){        
         context.clearRect(0, 0, canva.getWidth(), canva.getHeight());
-        for(Point point : vertices){
-            context.fillOval(point.x ,point.y,25,25); // (coordX,coordY,Weight, Height)
+        for(Vertice point : verticeV){
+            context.fillOval(point.getLocation().x ,point.getLocation().y,25,25); // (coordX,coordY,Weight, Height)
         }
     }
     
     private void addController(Point point){
-        vertices.add(point);
+        String name = setNames();
+        verticeV.add(new Vertice(point,name));
+        graph.addVertex(name);
     }
     
     private void removeController(Point point){
-        Point removePoint = iteratorPointList(point);
+        Vertice removePoint = iteratorPointList(point);
         if(removePoint == null){
             return;
         }
-        vertices.remove(removePoint);
+        verticeV.remove(removePoint);
     }
     
     private void connectController(GraphicsContext context){
         context.setStroke(Color.BLACK);
         context.setLineWidth(2);
         context.setLineDashes(0);
-        context.strokeLine(connection[0].x + 12.5, connection[0].y + 12.5, connection[1].x + 12.5, connection[1].y + 12.5);
+        context.strokeLine(connection[0].getLocation().x + 12.5, connection[0].getLocation().y + 12.5, connection[1].getLocation().x + 12.5, connection[1].getLocation().y + 12.5);
+         
+        graph.addEdge(connection[0].getName(), connection[1].getName());
     }
     
     public void mouseHandler(MouseEvent event){
@@ -106,15 +117,15 @@ public class canva {
         Point point = new Point(clickX,clickY);
         if(stateC){
             if(connectAux){
-                Point connectPoint = iteratorPointList(point);
+                Vertice connectPoint = iteratorPointList(point);
                 if(connectPoint == null){
                     return;
                 }
                 connection[1] = connectPoint;
-                connectController(context);   
+                connectController(context);
                 connectAux = false;
             }else{
-                Point connectPoint = iteratorPointList(point);
+                Vertice connectPoint = iteratorPointList(point);
                 if(connectPoint == null){
                     return;
                 }
@@ -146,9 +157,9 @@ public class canva {
         
         
     }
-    public Point iteratorPointList(Point point){
-        for(Point points : vertices){
-                boolean pointConf = ClickConfirm(point,points,25);
+    public Vertice iteratorPointList(Point point){
+        for(Vertice points : verticeV){
+                boolean pointConf = ClickConfirm(point,points.getLocation(),25);
                 if(pointConf){
                     return points;
                 }
@@ -166,6 +177,19 @@ public class canva {
             }
         }        
         return false;
+    }
+    
+    private String setNames(){
+        return "v" + id++;
+    }
+    
+    public void printGrahp(){
+        System.out.println("Vertices: " + graph.vertexSet());
+        for (DefaultEdge edge : graph.edgeSet()) {
+            String source = graph.getEdgeSource(edge);
+            String target = graph.getEdgeTarget(edge);
+            System.out.println("Arista: " + edge + ", desde " + source + " hasta " + target);
+        }
     }
     
 }
