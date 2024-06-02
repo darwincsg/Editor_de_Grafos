@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ubi.menu">
+   <children>
+      <Label fx:id="lbl1" alignment="CENTER" contentDisplay="CENTER" layoutX="162.0" layoutY="42.0" prefHeight="53.0" prefWidth="165.0" text="GraphsEditor">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="108.0" layoutY="139.0" mnemonicParsing="false" onAction="#dirHandler" prefHeight="43.0" prefWidth="79.0" text="Directed" />
+      <Button layoutX="288.0" layoutY="139.0" mnemonicParsing="false" onAction="#weightHandler" prefHeight="43.0" prefWidth="79.0" text="Weight" />
+      <Button layoutX="291.0" layoutY="204.0" mnemonicParsing="false" onAction="#weightHandler" prefHeight="43.0" prefWidth="79.0" text="Unweight" />
+      <Button layoutX="108.0" layoutY="204.0" mnemonicParsing="false" onAction="#dirHandler" prefHeight="43.0" prefWidth="79.0" text="Undirected" />
+      <Button layoutX="206.0" layoutY="305.0" mnemonicParsing="false" onAction="#nextController" prefHeight="25.0" prefWidth="79.0" text="Start" />
+   </children>
+</AnchorPane>

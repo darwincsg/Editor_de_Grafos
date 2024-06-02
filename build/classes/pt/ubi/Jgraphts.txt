@@ -1,0 +1,27 @@
+-Graph<URI, DefaultEdge> g = new DefaultDirectedGraph<>(DefaultEdge.class);
+    Esta es la forma de crear un grafo, notese que colocamos Url y default, por lo tanto
+    podemos cambiar URL por ints o strings, de la otra forma Default son las conexiones 
+    y de las misma manera podemos cambiarlas
+
+-URI start = hrefGraph
+            .vertexSet().stream().filter(uri -> uri.getHost().equals("www.jgrapht.org")).findAny()
+            .get();
+
+    IMAGINEMOS el caso donde necesitamos buscar un punto especifico o solo queremos la informacion de ahi,
+     podemos ir directo a el con este metodo, este no es el unico metodo pero para dejar en claro de que existen
+
+
+NOSOTROS USAREMOS 4 TIPOS DE GRAFOS:
+    -Simple Graphs
+    -SimpleWeightedGraph
+
+    -SimpleDirectedGraph
+    -SimpleDirectedWeightedGraph
+    
+    Aqui un constructor de ejemplo
+    private static Graph<Integer, DefaultEdge> buildEmptySimpleGraph()
+    {
+        return GraphTypeBuilder
+            .<Integer, DefaultEdge> undirected().allowingMultipleEdges(false)
+            .allowingSelfLoops(false).edgeClass(DefaultEdge.class).weighted(false).buildGraph();
+    }
