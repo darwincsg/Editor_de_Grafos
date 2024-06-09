@@ -19,6 +19,7 @@
                   <Button layoutX="92.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeButtonController" text="Remove" />
                   <Button layoutX="168.0" layoutY="17.0" mnemonicParsing="false" onAction="#connectButtonController" text="Connect" />
                   <Button layoutX="558.0" layoutY="17.0" mnemonicParsing="false" onAction="#printGrahp" text="Print" />
+                  <Button layoutX="406.0" layoutY="17.0" mnemonicParsing="false" onAction="#printDijkstra" text="Dijkstra" />
                </children></Pane>
          </top>
       </BorderPane>

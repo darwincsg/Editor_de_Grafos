@@ -3,6 +3,7 @@ package pt.ubi;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javafx.scene.canvas.Canvas;
@@ -20,10 +21,15 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import org.jgrapht.Graph;
+import org.jgrapht.alg.connectivity.ConnectivityInspector;
+import org.jgrapht.alg.cycle.CycleDetector;
+import org.jgrapht.alg.cycle.JohnsonSimpleCycles;
 import org.jgrapht.alg.shortestpath.BFSShortestPath;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
+import org.jgrapht.traverse.BreadthFirstIterator;
+import org.jgrapht.traverse.TopologicalOrderIterator;
 
 
 /**
@@ -49,7 +55,7 @@ public class canvaDirectUnW {
     
     private List<Vertice> verticeV = new ArrayList<>();
     
-     Graph<String, DefaultEdge> graph = new DefaultDirectedGraph<>(DefaultEdge.class);
+    Graph<String, DefaultEdge> graph = new DefaultDirectedGraph<>(DefaultEdge.class);
     
     public void addButtonController(ActionEvent event){
         state1 = true;
@@ -189,6 +195,39 @@ public class canvaDirectUnW {
     
     private String setNames(){
         return "v" + id++;
+    }
+    
+    public void printCycles() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        
+        algorithm_output out = fxmlLoader.getController();
+        out.setTextJhonson(graph);
+        
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("D:");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    public void printConnectivity() throws IOException{
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/input.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle(":D");
+        stage.setScene(new Scene(root));
+        stage.show();
+        
+        input in = fxmlLoader.getController();
+        in.inputGraphsD(graph);
+        in.setMode(2);
+        
+    
     }
     
     public void printGrahp() throws IOException{

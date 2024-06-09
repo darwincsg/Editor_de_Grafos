@@ -9,9 +9,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ubi.canvaDirectUnW">
    <children>
       <BorderPane prefHeight="463.0" prefWidth="619.0">
-         <center>
-            <Canvas fx:id="canva" height="404.0" onMouseClicked="#mouseHandler" width="618.0" BorderPane.alignment="CENTER" />
-         </center>
          <top>
             <Pane prefHeight="59.0" prefWidth="559.0" style="-fx-background-color: rgb(81, 81, 81);" BorderPane.alignment="CENTER">
                <children>
@@ -19,8 +16,13 @@
                   <Button layoutX="92.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeButtonController" text="Remove" />
                   <Button layoutX="168.0" layoutY="17.0" mnemonicParsing="false" onAction="#connectButtonController" text="Connect" />
                   <Button layoutX="558.0" layoutY="17.0" mnemonicParsing="false" onAction="#printGrahp" text="Print" />
+                  <Button layoutX="384.0" layoutY="17.0" mnemonicParsing="false" onAction="#printCycles" text="J_Cycles" />
+                  <Button layoutX="450.0" layoutY="17.0" mnemonicParsing="false" onAction="#printConnectivity" text="Connectivity" />
                </children></Pane>
          </top>
+         <right>
+            <Canvas fx:id="canva" height="404.0" onMouseClicked="#mouseHandler" width="618.0" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

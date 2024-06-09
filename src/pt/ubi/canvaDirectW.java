@@ -212,9 +212,8 @@ public class canvaDirectW {
     private String setNames(){
         return "v" + id++;
     }
-    /*
-    public void printBFS() throws IOException{
-        BFSShortestPath<String, DefaultEdge> bfs = new BFSShortestPath<>(graph);
+    
+    public void printDijkstra() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/input.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -223,11 +222,11 @@ public class canvaDirectW {
         stage.setTitle(":D");
         stage.setScene(new Scene(root));
         stage.show();
-        
         input in = fxmlLoader.getController();
-        in.inputBFS(bfs);
+        in.inputGraphs(graph);
+        in.setMode(1);
     }
-    
+    /*
     public void printDFS() throws IOException{
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));

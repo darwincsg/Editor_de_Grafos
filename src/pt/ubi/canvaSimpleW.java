@@ -21,6 +21,9 @@ import javafx.stage.StageStyle;
 
 import org.jgrapht.Graph;
 import org.jgrapht.alg.shortestpath.BFSShortestPath;
+import org.jgrapht.alg.shortestpath.BellmanFordShortestPath;
+import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+import org.jgrapht.alg.spanning.PrimMinimumSpanningTree;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleGraph;
@@ -212,29 +215,16 @@ public class canvaSimpleW {
     private String setNames(){
         return "v" + id++;
     }
-    /*
-    public void printBFS() throws IOException{
-        BFSShortestPath<String, DefaultEdge> bfs = new BFSShortestPath<>(graph);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/input.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initModality(Modality.NONE);
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle(":D");
-        stage.setScene(new Scene(root));
-        stage.show();
-        
-        input in = fxmlLoader.getController();
-        in.inputBFS(bfs);
-    }
     
-    public void printDFS() throws IOException{
+    public void printPRIM() throws IOException{
+        PrimMinimumSpanningTree<String, DefaultWeightedEdge> primAlg = new PrimMinimumSpanningTree<>(graph);
+        Set<DefaultWeightedEdge> mstEdges = primAlg.getSpanningTree().getEdges(); 
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         
         algorithm_output out = fxmlLoader.getController();
-        out.setTextDFSCycle(graph);
+        out.setTextPRIM(mstEdges, graph);
         
         Stage stage = new Stage();
         stage.initModality(Modality.NONE);
@@ -243,7 +233,37 @@ public class canvaSimpleW {
         stage.setScene(new Scene(root));
         stage.show();
         
-    }*/
+        
+    }
+    
+    public void printDijkstra() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/input.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle(":D");
+        stage.setScene(new Scene(root));
+        stage.show();
+        input in = fxmlLoader.getController();
+        in.inputGraphs(graph);
+        in.setMode(1);
+    }
+    
+    public void printB_Ford() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        
+        algorithm_output out = fxmlLoader.getController();
+        out.setB_Ford(graph, verticeV);
+        
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("D:");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     
     public void printGrahp() throws IOException{
         Set<String> s = graph.vertexSet();        

@@ -12,7 +12,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.jgrapht.Graph;
 import org.jgrapht.alg.shortestpath.BFSShortestPath;
+import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 
 /**
@@ -28,15 +31,27 @@ public class input {
     
     public int mode;
     
+    Graph<String, DefaultWeightedEdge> graphW;
+    Graph<String,DefaultEdge> graphD;
+    
     public BFSShortestPath<String, DefaultEdge> bfs;
     
     public void setMode(int mode){
         this.mode = mode;
     }
     
+    public void inputGraphs(Graph<String, DefaultWeightedEdge> graphW){
+        this.graphW = graphW;
+    }
+    
+    public void inputGraphsD(Graph<String,DefaultEdge> graphD){
+        this.graphD = graphD;
+    }
+    
     public void inputBFS(BFSShortestPath<String, DefaultEdge> bfs){
         this.bfs = bfs;
     }
+    
     
     public void nextOutputController(ActionEvent event) throws IOException{
         String s1 = txtVertA.getText(), s2 = txtVertB.getText();
@@ -48,11 +63,18 @@ public class input {
         Parent root = (Parent) fxmlLoader.load();
         
         algorithm_output out = fxmlLoader.getController();
-        
+        out.setS1(txtVertA.getText());
+        out.setS2(txtVertB.getText());
+        //MODE == 0 -> BFS INPUT MODE
         if(mode == 0 && bfs != null){
-            out.setS1(txtVertA.getText());
-            out.setS2(txtVertB.getText());
             out.setTextBFSEdges(bfs);
+        }
+        else if(mode == 1){
+            out.setDijkstra(graphW);
+        }else if(mode == 2){
+            out.setTextConnectivity(graphD);
+        }else if(mode == 3){
+            return;
         }else{
             return;
         }

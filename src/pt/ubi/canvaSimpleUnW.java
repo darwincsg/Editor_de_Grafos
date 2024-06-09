@@ -222,7 +222,6 @@ public class canvaSimpleUnW {
     }
     
     public void printDFS() throws IOException{
-        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         
