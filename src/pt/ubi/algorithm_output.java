@@ -18,6 +18,7 @@ import org.jgrapht.alg.cycle.JohnsonSimpleCycles;
 import org.jgrapht.alg.shortestpath.BFSShortestPath;
 import org.jgrapht.alg.shortestpath.BellmanFordShortestPath;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+import org.jgrapht.alg.shortestpath.FloydWarshallShortestPaths;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DefaultWeightedEdge;
 
@@ -176,7 +177,19 @@ public class algorithm_output {
         
     //
     //DIRECT WEIGHT
-        
+        public void setTextFloydWarshall(Graph<String, DefaultWeightedEdge> graph){
+            FloydWarshallShortestPaths<String, DefaultWeightedEdge> floydWarshall = new FloydWarshallShortestPaths<>(graph);
+            String edge = "";
+            for (String source : graph.vertexSet()) {
+                for (String target : graph.vertexSet()) {
+                    if (!source.equals(target)) {
+                        double distance = floydWarshall.getPathWeight(source, target);
+                        edge = edge + "Distancia más corta de " + source + " a " + target + ": " + distance + "\n";
+                    }
+                }
+            }
+            txtEdges.setText(edge);
+        }
     //
     public void nextController(ActionEvent event) throws IOException{
         Stage thisStage = (Stage) txtEdges.getScene().getWindow();

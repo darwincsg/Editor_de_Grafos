@@ -1,19 +1,10 @@
 package pt.ubi;
 
-import java.io.IOException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import org.jgrapht.Graph;
-import org.jgrapht.alg.shortestpath.BFSShortestPath;
-import org.jgrapht.graph.DefaultEdge;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 

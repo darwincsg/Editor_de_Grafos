@@ -20,12 +20,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import org.jgrapht.Graph;
-import org.jgrapht.alg.shortestpath.BFSShortestPath;
-import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.alg.spanning.PrimMinimumSpanningTree;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-import org.jgrapht.graph.SimpleGraph;
-import org.jgrapht.graph.SimpleWeightedGraph;
 
 
 /**
@@ -226,14 +223,30 @@ public class canvaDirectW {
         in.inputGraphs(graph);
         in.setMode(1);
     }
-    /*
-    public void printDFS() throws IOException{
+    public void printFloydWarshall() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        
+        algorithm_output out = fxmlLoader.getController();
+        out.setTextFloydWarshall(graph);
+        
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("D:");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    public void printPRIM() throws IOException{
+        PrimMinimumSpanningTree<String, DefaultWeightedEdge> primMST = new PrimMinimumSpanningTree<>(graph);
+        Set<DefaultWeightedEdge> mstEdges = primMST.getSpanningTree().getEdges();
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         
         algorithm_output out = fxmlLoader.getController();
-        out.setTextDFSCycle(graph);
+        out.setTextPRIM(mstEdges, graph);
         
         Stage stage = new Stage();
         stage.initModality(Modality.NONE);
@@ -242,7 +255,7 @@ public class canvaDirectW {
         stage.setScene(new Scene(root));
         stage.show();
         
-    }*/
+    }
     
     public void printGrahp() throws IOException{
         Set<String> s = graph.vertexSet();        
