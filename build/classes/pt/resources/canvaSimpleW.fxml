@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ubi.canva">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ubi.canvaSimpleW">
    <children>
       <BorderPane prefHeight="463.0" prefWidth="619.0">
          <center>
@@ -18,7 +18,7 @@
                   <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#addButtonController" prefHeight="25.0" prefWidth="58.0" text="Add" />
                   <Button layoutX="92.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeButtonController" text="Remove" />
                   <Button layoutX="168.0" layoutY="17.0" mnemonicParsing="false" onAction="#connectButtonController" text="Connect" />
-                  <Button layoutX="547.0" layoutY="17.0" mnemonicParsing="false" onAction="#printGrahp" text="Print" />
+                  <Button layoutX="558.0" layoutY="17.0" mnemonicParsing="false" onAction="#printGrahp" text="Print" />
                </children></Pane>
          </top>
       </BorderPane>

@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
@@ -13,13 +14,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import org.jgrapht.Graph;
+import org.jgrapht.alg.shortestpath.BFSShortestPath;
 import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleGraph;
+import org.jgrapht.graph.SimpleWeightedGraph;
 
 
 /**
@@ -27,17 +32,13 @@ import org.jgrapht.graph.SimpleGraph;
  *
  * @author jpc
  */
-public class canva {
+public class canvaSimpleW {
     @FXML
     public Canvas canva;
 
     private boolean state1 = false;
     private boolean stateC = false;
     private boolean connectAux = false; 
-    private boolean SimpleGraph = false;
-    private boolean SimpleWeightedGraph = false;
-    private boolean SimpleDirectedGraph = false;
-    private boolean SimpleDirectedWeightedGraph = false;
             
     private int id = 0;
     
@@ -45,23 +46,9 @@ public class canva {
     
     private List<Vertice> verticeV = new ArrayList<>();
     
-    Graph<String, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
     
-    public void setSimpleGraph(boolean SimpleGraph) {
-        this.SimpleGraph = SimpleGraph;
-    }
+    Graph<String, DefaultWeightedEdge> graph = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
 
-    public void setSimpleWeightedGraph(boolean SimpleWeightedGraph) {
-        this.SimpleWeightedGraph = SimpleWeightedGraph;
-    }
-
-    public void setSimpleDirectedGraph(boolean SimpleDirectedGraph) {
-        this.SimpleDirectedGraph = SimpleDirectedGraph;
-    }
-
-    public void setSimpleDirectedWeightedGraph(boolean SimpleDirectedWeightedGraph) {
-        this.SimpleDirectedWeightedGraph = SimpleDirectedWeightedGraph;
-    }
     
     public void addButtonController(ActionEvent event){
         state1 = true;
@@ -79,9 +66,36 @@ public class canva {
         
     public void paintController(GraphicsContext context){        
         context.clearRect(0, 0, canva.getWidth(), canva.getHeight());
+        context.setFont(new Font("Arial", 15));
+        context.setFill(Color.BLACK);
         for(Vertice point : verticeV){
             context.fillOval(point.getLocation().x ,point.getLocation().y,25,25); // (coordX,coordY,Weight, Height)
+            context.fillText(point.getName(), point.getLocation().x + 5, point.getLocation().y + 40);
         }
+        
+        for (DefaultWeightedEdge edge : graph.edgeSet()) {
+            String source = graph.getEdgeSource(edge);
+            String target = graph.getEdgeTarget(edge);
+            double weight = graph.getEdgeWeight(edge);
+            int pointX, pointY;
+            Vertice x = null,y = null;
+            for(Vertice v : verticeV){
+                if(source.equals(v.getName())){
+                    x = v;
+                }
+                if(target.equals(v.getName())){
+                    y = v;
+                }   
+            }
+            pointX = (x.getLocation().x + y.getLocation().x)/2;
+            pointY = (x.getLocation().y + y.getLocation().y)/2;
+            context.setStroke(Color.BLACK);
+            context.setLineWidth(2);
+            context.setLineDashes(0);
+            context.strokeLine(x.getLocation().x + 12.5, x.getLocation().y + 12.5, y.getLocation().x + 12.5, y.getLocation().y + 12.5);
+            context.fillText(String.valueOf(weight), pointX, pointY);
+        }
+        
     }
     
     private void addController(Point point){
@@ -96,15 +110,31 @@ public class canva {
             return;
         }
         verticeV.remove(removePoint);
+        graph.removeVertex(removePoint.getName());
     }
     
     private void connectController(GraphicsContext context){
-        context.setStroke(Color.BLACK);
-        context.setLineWidth(2);
-        context.setLineDashes(0);
-        context.strokeLine(connection[0].getLocation().x + 12.5, connection[0].getLocation().y + 12.5, connection[1].getLocation().x + 12.5, connection[1].getLocation().y + 12.5);
-         
-        graph.addEdge(connection[0].getName(), connection[1].getName());
+        String Winput;
+        int Weight;
+        
+        Stage inputStage = new Stage();
+        inputStage.setTitle("Weight de Input");
+        
+        inputWeight in = new inputWeight();
+        in.show(inputStage);
+        inputStage.showAndWait();
+        
+        Winput = in.getInputValue();
+        
+        try{
+            Weight =  Integer.parseInt(Winput);
+        }
+        catch(NumberFormatException e){
+            Weight = 1;
+        }
+        
+        graph.setEdgeWeight((graph.addEdge(connection[0].getName(), connection[1].getName())), Weight);
+        paintController(context);
     }
     
     public void mouseHandler(MouseEvent event){
@@ -182,14 +212,61 @@ public class canva {
     private String setNames(){
         return "v" + id++;
     }
+    /*
+    public void printBFS() throws IOException{
+        BFSShortestPath<String, DefaultEdge> bfs = new BFSShortestPath<>(graph);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/input.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle(":D");
+        stage.setScene(new Scene(root));
+        stage.show();
+        
+        input in = fxmlLoader.getController();
+        in.inputBFS(bfs);
+    }
     
-    public void printGrahp(){
-        System.out.println("Vertices: " + graph.vertexSet());
-        for (DefaultEdge edge : graph.edgeSet()) {
+    public void printDFS() throws IOException{
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/algorithm_output.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        
+        algorithm_output out = fxmlLoader.getController();
+        out.setTextDFSCycle(graph);
+        
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("D:");
+        stage.setScene(new Scene(root));
+        stage.show();
+        
+    }*/
+    
+    public void printGrahp() throws IOException{
+        Set<String> s = graph.vertexSet();        
+        String edges = "";
+        for (DefaultWeightedEdge edge : graph.edgeSet()) {
             String source = graph.getEdgeSource(edge);
             String target = graph.getEdgeTarget(edge);
-            System.out.println("Arista: " + edge + ", desde " + source + " hasta " + target);
+            double weight = graph.getEdgeWeight(edge);
+            edges = edges + ("|" + source + " --(" + weight + ")-- " + target + '\n');
         }
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/output.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.NONE);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle(":D");
+        stage.setScene(new Scene(root));
+        stage.show();
+        
+        output out = fxmlLoader.getController();
+        out.setTextVertices(s.toString());
+        out.setTextEdges(edges);
     }
     
 }

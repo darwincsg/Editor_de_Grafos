@@ -52,21 +52,43 @@ public class menu {
     }    
     
     public void nextController() throws IOException{
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("canva.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initModality(Modality.NONE);
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Resultado");
-        stage.setScene(new Scene(root));
-        stage.show();
-        
-        canva controller = fxmlLoader.getController();
-        controller.setSimpleDirectedGraph(dir && !weight);
-        controller.setSimpleDirectedWeightedGraph(dir && weight);
-        controller.setSimpleGraph(!(dir || weight));
-        controller.setSimpleWeightedGraph(!dir && weight);
+        if(!(dir || weight)){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/canvaSimpleUnW.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Resultado");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }else if(!dir && weight){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/canvaSimpleW.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Resultado");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }else if (dir && !weight){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/canvaDirectUnW.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Resultado");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }else if(dir && weight){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/canvaDirectW.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Resultado");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
         
         Stage thisStage = (Stage) lbl1.getScene().getWindow();
         thisStage.close();
